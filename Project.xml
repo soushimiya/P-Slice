@@ -134,8 +134,6 @@ xsi:schemaLocation="http://lime.openfl.org/project/1.0.4 http://lime.openfl.org/
 	</section>
 	<assets path='art/readme.txt' rename='do NOT readme.txt' unless="mobile" />
 
-	<!-- _______________________________ Haxe libs ______________________________ -->
-	<!-- <library name="songs" preload="false" /> -->
 	<!-- _______________________________ Libraries ______________________________ -->
 
 	<haxelib name="flixel" version="git"/>
@@ -155,6 +153,8 @@ xsi:schemaLocation="http://lime.openfl.org/project/1.0.4 http://lime.openfl.org/
 	<haxelib name="hxdiscord_rpc" if="DISCORD_ALLOWED"/>
 
 	<haxelib name="flxanimate"/>
+	<haxelib name="haxeui-core"/>
+	<haxelib name="haxeui-flixel"/>
 
 	<!-- Category Type for Apple Systems -->
 	<config:ios category_type="public.app-category.music-games" />
@@ -234,6 +234,13 @@ xsi:schemaLocation="http://lime.openfl.org/project/1.0.4 http://lime.openfl.org/
 	<!-- more verbose HScript-->
 	<define name="IRIS_DEBUG" if="debug"/>
 	<haxedef name="hscriptPos" if="HSCRIPT_ALLOWED"/>
+
+		<!-- HaxeUI Stuff -->
+	<haxedef name="haxeui_focus_out_on_click" />
+	<haxedef name="haxeui_no_mouse_reset" />
+	<haxedef name="haxeui_allow_drag_any_component" />
+	<haxedef name="haxeui_flixel_no_custom_cursors" />
+	<haxedef name="haxeui_dont_impose_base_class" />
 
 	<!-- _________________________________ Custom _______________________________ -->
 

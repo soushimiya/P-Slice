@@ -17,6 +17,7 @@ import openfl.events.Event;
 import openfl.display.StageScaleMode;
 import lime.app.Application;
 import states.TitleState;
+import haxe.ui.Toolkit;
 #if COPYSTATE_ALLOWED
 import states.CopyState;
 #end
@@ -285,6 +286,11 @@ class Main extends Sprite
 		lime.system.System.allowScreenTimeout = ClientPrefs.data.screensaver;
 		FlxG.scaleMode = new MobileScaleMode();
 		#end
+
+		// initalize HaxeUI
+		Toolkit.init();
+		Toolkit.theme = 'dark';
+		Toolkit.autoScale = false;
 
 		// shader coords fix
 		FlxG.signals.gameResized.add(function(w, h)
