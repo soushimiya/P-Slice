@@ -189,13 +189,6 @@ class TitleState extends MusicBeatState
 		gfDance = new FlxSprite(gfPosition.x, gfPosition.y);
 		gfDance.antialiasing = ClientPrefs.data.antialiasing;
 		
-		if(ClientPrefs.data.shaders)
-		{
-			swagShader = new ColorSwap();
-			gfDance.shader = swagShader.shader;
-			logoBl.shader = swagShader.shader;
-		}
-		
 		gfDance.frames = Paths.getSparrowAtlas(characterImage);
 		if(!useIdle)
 		{
