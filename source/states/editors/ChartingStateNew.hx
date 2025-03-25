@@ -9,6 +9,11 @@ class ChartingStateNew extends haxe.ui.backend.flixel.UIState
 {
     override function create()
     {
+        // debug
+        ClientPrefs.loadPrefs();
+        Language.reloadPhrases();
+        // end of debug
+        
         FlxG.mouse.visible = true;
 
         var menuBG = new FlxSprite(Paths.image('menuDesat'));

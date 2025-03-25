@@ -189,6 +189,13 @@ class TitleState extends MusicBeatState
 		gfDance = new FlxSprite(gfPosition.x, gfPosition.y);
 		gfDance.antialiasing = ClientPrefs.data.antialiasing;
 		
+		if(ClientPrefs.data.shaders)
+		{
+			swagShader = new ColorSwap();
+			gfDance.shader = swagShader.shader;
+			logoBl.shader = swagShader.shader;
+		}
+		
 		gfDance.frames = Paths.getSparrowAtlas(characterImage);
 		if(!useIdle)
 		{
@@ -478,7 +485,7 @@ class TitleState extends MusicBeatState
 							FlxG.sound.music.fadeIn(4, 0, 0.7);
 						}
 						FlxTransitionableState.skipNextTransIn = true;
-						MusicBeatState.switchState(new states.editors.ChartingStateNew());
+						MusicBeatState.switchState(new MainMenuState());
 					}
 
 					closedState = true;

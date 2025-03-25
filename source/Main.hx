@@ -16,7 +16,7 @@ import openfl.display.Sprite;
 import openfl.events.Event;
 import openfl.display.StageScaleMode;
 import lime.app.Application;
-import states.TitleState;
+import states.editors.ChartingStateNew;
 import haxe.ui.Toolkit;
 #if COPYSTATE_ALLOWED
 import states.CopyState;
@@ -52,7 +52,7 @@ class Main extends Sprite
 	var game = {
 		width: 1280, // WINDOW width
 		height: 720, // WINDOW height
-		initialState: TitleState, // initial game state
+		initialState: ChartingStateNew, // initial game state
 		zoom: -1.0, // game state bounds
 		framerate: 60, // default framerate
 		skipSplash: true, // if the default flixel splash screen should be skipped
@@ -146,6 +146,11 @@ class Main extends Sprite
 		FlxG.save.bind('funkin', CoolUtil.getSavePath());
 
 		Highscore.load();
+		
+		// initalize HaxeUI
+		Toolkit.init();
+		Toolkit.theme = 'dark';
+		Toolkit.autoScale = false;
 
 		#if HSCRIPT_ALLOWED
 		Iris.warn = function(x, ?pos:haxe.PosInfos) {
@@ -286,11 +291,6 @@ class Main extends Sprite
 		lime.system.System.allowScreenTimeout = ClientPrefs.data.screensaver;
 		FlxG.scaleMode = new MobileScaleMode();
 		#end
-
-		// initalize HaxeUI
-		Toolkit.init();
-		Toolkit.theme = 'dark';
-		Toolkit.autoScale = false;
 
 		// shader coords fix
 		FlxG.signals.gameResized.add(function(w, h)
